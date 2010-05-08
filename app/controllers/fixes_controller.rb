@@ -41,11 +41,16 @@ class FixesController < ApplicationController
   # POST /fixes.xml
   def create
     @fixes = ActiveSupport::JSON.decode(params[:fixes])
+    first_fix_time = ''
+
     @fixes.each do |fix|
       if fix['t'].is_a?(Array)
-        fix['t'].each do |fix_time|
+        fix['t'].each_with_index do |fix_time,index|
+          if index == 0
+            first_fix_time = fix_time
+          end
           Fix.create!(
-            :fix_time => fix_time, 
+            :fix_time => Time.parse(fix_time.to_s), 
             :latitude => fix['ll'][0], 
             :longitude => fix['ll'][1], 
             :horiz_accuracy => fix['ha'],
@@ -56,8 +61,9 @@ class FixesController < ApplicationController
           )
         end
       else
+        first_fix_time = fix['t']
         Fix.create!(
-          :fix_time => fix['t'], 
+          :fix_time => Time.parse(fix['t'].to_s), 
           :latitude => fix['ll'][0], 
           :longitude => fix['ll'][1], 
           :horiz_accuracy => fix['ha'],
@@ -68,19 +74,7 @@ class FixesController < ApplicationController
         )
       end
     end
-
-    @fix = Fix.new(params[:fix])
-
-    respond_to do |format|
-      if @fix.save
-        flash[:notice] = 'Fix was successfully created.'
-        format.html { redirect_to(@fix) }
-        format.xml  { render :xml => @fix, :status => :created, :location => @fix }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @fix.errors, :status => :unprocessable_entity }
-      end
-    end
+    render :json => {:fix_tlist => [first_fix_time]}
   end
 
   # PUT /fixes/1
