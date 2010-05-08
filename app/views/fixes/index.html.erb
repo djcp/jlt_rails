@@ -1,0 +1,34 @@
+<h1>Listing fixes</h1>
+
+<table>
+  <tr>
+    <th>Fix time</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+    <th>Horiz accuracy</th>
+    <th>Vert accuracy</th>
+    <th>Altitude</th>
+    <th>Velocity</th>
+    <th>Heading</th>
+  </tr>
+
+<% @fixes.each do |fix| %>
+  <tr>
+    <td><%=h fix.fix_time %></td>
+    <td><%=h fix.latitude %></td>
+    <td><%=h fix.longitude %></td>
+    <td><%=h fix.horiz_accuracy %></td>
+    <td><%=h fix.vert_accuracy %></td>
+    <td><%=h fix.altitude %></td>
+    <td><%=h fix.velocity %></td>
+    <td><%=h fix.heading %></td>
+    <td><%= link_to 'Show', fix %></td>
+    <td><%= link_to 'Edit', edit_fix_path(fix) %></td>
+    <td><%= link_to 'Destroy', fix, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New fix', new_fix_path %>

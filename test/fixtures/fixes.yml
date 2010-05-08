@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  fix_time: 2010-05-07 22:44:06
+  latitude: MyString
+  longitude: MyString
+  horiz_accuracy: MyString
+  vert_accuracy: MyString
+  altitude: MyString
+  velocity: MyString
+  heading: MyString
+
+two:
+  fix_time: 2010-05-07 22:44:06
+  latitude: MyString
+  longitude: MyString
+  horiz_accuracy: MyString
+  vert_accuracy: MyString
+  altitude: MyString
+  velocity: MyString
+  heading: MyString

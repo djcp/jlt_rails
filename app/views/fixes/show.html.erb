@@ -1,0 +1,43 @@
+<p>
+  <b>Fix time:</b>
+  <%=h @fix.fix_time %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%=h @fix.latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%=h @fix.longitude %>
+</p>
+
+<p>
+  <b>Horiz accuracy:</b>
+  <%=h @fix.horiz_accuracy %>
+</p>
+
+<p>
+  <b>Vert accuracy:</b>
+  <%=h @fix.vert_accuracy %>
+</p>
+
+<p>
+  <b>Altitude:</b>
+  <%=h @fix.altitude %>
+</p>
+
+<p>
+  <b>Velocity:</b>
+  <%=h @fix.velocity %>
+</p>
+
+<p>
+  <b>Heading:</b>
+  <%=h @fix.heading %>
+</p>
+
+
+<%= link_to 'Edit', edit_fix_path(@fix) %> |
+<%= link_to 'Back', fixes_path %>

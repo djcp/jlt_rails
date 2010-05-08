@@ -1,0 +1,44 @@
+<h1>Editing fix</h1>
+
+<% form_for(@fix) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :fix_time %><br />
+    <%= f.datetime_select :fix_time %>
+  </p>
+  <p>
+    <%= f.label :latitude %><br />
+    <%= f.text_field :latitude %>
+  </p>
+  <p>
+    <%= f.label :longitude %><br />
+    <%= f.text_field :longitude %>
+  </p>
+  <p>
+    <%= f.label :horiz_accuracy %><br />
+    <%= f.text_field :horiz_accuracy %>
+  </p>
+  <p>
+    <%= f.label :vert_accuracy %><br />
+    <%= f.text_field :vert_accuracy %>
+  </p>
+  <p>
+    <%= f.label :altitude %><br />
+    <%= f.text_field :altitude %>
+  </p>
+  <p>
+    <%= f.label :velocity %><br />
+    <%= f.text_field :velocity %>
+  </p>
+  <p>
+    <%= f.label :heading %><br />
+    <%= f.text_field :heading %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @fix %> |
+<%= link_to 'Back', fixes_path %>
