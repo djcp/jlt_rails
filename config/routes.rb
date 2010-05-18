@@ -1,5 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :fixes
+  map.connect 'fixes/fixes_list', :controller => 'fixes', :action => :fixes_list
+  map.resources :fixes 
+
 
   # The priority is based upon order of creation: first created -> highest priority.
 

@@ -1,4 +1,11 @@
 class FixesController < ApplicationController
+
+  def fixes_list
+    fixes = Fix.find(:all)
+    fixes_count = fixes.length
+    render :json => {:fixes => fixes, :count => fixes_count}
+  end
+
   # GET /fixes
   # GET /fixes.xml
   def index

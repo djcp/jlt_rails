@@ -4,7 +4,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
   <title>Fixes: <%= controller.action_name %></title>
+  <%= javascript_include_tag 'jquery-1.4.2.min.js' %>
+  <%= javascript_include_tag 'application.js' %>
   <%= stylesheet_link_tag 'scaffold' %>
 </head>
 <body>
